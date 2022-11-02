@@ -6,8 +6,11 @@
     <label>Occupation:<input type="text" name="occupation" value="<%= character.occupation %>"/></label>
     <label>Weapon:<input type="text" name="weapon" value="<%= character.weapon %>"/></label>
     <input type="checkbox" name="dept"> is a Cartoon</label>
-
     <button type="submit">Change</button>
+  </form>
+
+  <form method="POST" action="/characters/<%= character.id %>/delete">
+    <button type="submit">delete</button>
   </form>
 
 

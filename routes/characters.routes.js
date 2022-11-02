@@ -88,6 +88,24 @@ router.post('/characters/:id/edit',async (req, res) => {
   })
 
 
+
+  router.post('/characters/:id/delete',async (req, res) => {
+    console.log(req.params.id)
+    try
+    {
+        const update = await axios({
+            method: 'delete',
+            url: 'https://ih-crud-api.herokuapp.com/characters/'+ req.params.id,  
+            });
+       //console.log(update);
+
+        const responseFromAPI = await axios.get("https://ih-crud-api.herokuapp.com/characters")
+        res.render("characters/list-characters", { characters: responseFromAPI.data });
+    }
+    catch(error)
+    {console.log(error)}
+  })
+
 module.exports = router;
 
 
